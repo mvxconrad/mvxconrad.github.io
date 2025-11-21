@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import SkillBadge from '../components/SkillBadge'
+import headshot from '../../assets/headshot.jpg'
+
 
 function About() {
   // Skills from resume - exact match
@@ -38,7 +40,7 @@ function About() {
             <div className="row align-items-center">
               <div className="col-md-4 text-center mb-4 mb-md-0">
                 <motion.img 
-                  src="/assets/headshot.jpg" 
+                  src={headshot} 
                   alt="Max Conrad" 
                   className="img-fluid rounded-circle"
                   style={{

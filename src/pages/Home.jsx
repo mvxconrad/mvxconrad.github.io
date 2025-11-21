@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import resumePDF from '../../assets/resume.pdf'   // adjust path if needed
+
 
 function Home() {
   return (
@@ -64,7 +66,7 @@ function Home() {
               Get in Touch
             </Link>
             <a 
-              href="/assets/resume.pdf" 
+              href={resumePDF} 
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline-info btn-lg px-4"

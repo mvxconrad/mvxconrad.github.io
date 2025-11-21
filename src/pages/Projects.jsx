@@ -47,7 +47,7 @@ function Projects() {
       "OpenAI GPT-4",
       "OAuth 2.0 / JWT",
 ],
-      githubLink: 'https://github.com/mvxconrad',
+      githubLink: 'https://github.com/mvxconrad/ForgePrep',
       liveLink: null
     }
   ]
