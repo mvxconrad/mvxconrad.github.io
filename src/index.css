@@ -1,0 +1,392 @@
+/* Custom global styles for cyber aesthetic */
+:root {
+  --neon-green: #00ff41;
+  --neon-green-dim: #00cc33;
+  --neon-purple: #b026ff;
+  --cyber-dark: #0a0e27;
+  --cyber-darker: #050811;
+  --text-bright: #e8e8e8;
+  --text-very-bright: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cyber-darker);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated grid background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+  animation: gridMove 20s linear infinite;
+}
+
+/* Interactive gradient orbs - smooth floating effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(0, 255, 65, 0.12) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 70%, rgba(176, 38, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(0, 194, 255, 0.08) 0%, transparent 35%);
+  z-index: 0;
+  animation: orbFloat 35s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+@keyframes orbFloat {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  33% { 
+    transform: translate(40px, -40px) scale(1.1);
+    opacity: 1;
+  }
+  66% { 
+    transform: translate(-40px, 40px) scale(0.95);
+    opacity: 0.85;
+  }
+}
+
+/* Animated geometric lines effect */
+#root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(45deg, transparent 48%, rgba(0, 255, 65, 0.03) 49%, rgba(0, 255, 65, 0.03) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(176, 38, 255, 0.02) 49%, rgba(176, 38, 255, 0.02) 51%, transparent 52%);
+  background-size: 100px 100px;
+  z-index: 1;
+  pointer-events: none;
+  animation: geometricShift 40s linear infinite;
+}
+
+@keyframes geometricShift {
+  0% { 
+    background-position: 0 0, 0 0;
+    opacity: 0.5;
+  }
+  50% { 
+    background-position: 100px 100px, -100px -100px;
+    opacity: 0.8;
+  }
+  100% { 
+    background-position: 200px 200px, -200px -200px;
+    opacity: 0.5;
+  }
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { 
+    opacity: 1;
+    transform: translate(0, 0) scale(1); 
+  }
+  33% { 
+    opacity: 0.8;
+    transform: translate(30px, -30px) scale(1.1); 
+  }
+  66% { 
+    opacity: 0.6;
+    transform: translate(-20px, 30px) scale(0.9); 
+  }
+}
+
+/* Glassmorphic card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 65, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(0, 255, 65, 0.03) 50%,
+    transparent 70%
+  );
+  animation: cardShine 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes cardShine {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--neon-green);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 255, 65, 0.15);
+}
+
+/* Neon text effect - subtle */
+.neon-text {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.neon-text-purple {
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px rgba(176, 38, 255, 0.4);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.text-glow-white {
+  color: #e0e0e0;
+  font-weight: 600;
+  text-shadow: 
+    0 0 15px rgba(0, 255, 65, 0.3),
+    0 0 25px rgba(0, 255, 65, 0.15);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.neon-text-blue {
+  color: #00c2ff;
+  text-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.neon-text-red {
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.text-very-bright {
+  color: var(--text-very-bright);
+}
+
+/* Prevent selection highlighting on headers */
+h1, h2, h3, h4, h5, h6 {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Remove text selection green background globally */
+::selection {
+  background: rgba(0, 255, 65, 0.2);
+  color: var(--text-very-bright);
+}
+
+::-moz-selection {
+  background: rgba(0, 255, 65, 0.2);
+  color: var(--text-very-bright);
+}
+
+/* Disable selection on neon elements */
+.neon-text::selection,
+.neon-text-purple::selection {
+  background: transparent;
+  color: inherit;
+}
+
+.neon-text::-moz-selection,
+.neon-text-purple::-moz-selection {
+  background: transparent;
+  color: inherit;
+}
+
+/* Ensure interactive elements are above background */
+.container,
+.card,
+.btn,
+a,
+button {
+  position: relative;
+  z-index: 100;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-green);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-purple);
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Custom badge styles */
+.skill-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid var(--neon-green);
+  border-radius: 20px;
+  color: var(--neon-green);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  background: rgba(0, 255, 65, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+/* Animated button effects */
+.btn {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-width: 2px;
+}
+
+.btn-success {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-success::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-success:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-success:hover,
+.btn-outline-success:hover {
+  box-shadow: 0 0 20px rgba(150, 150, 150, 0.6) !important;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.btn-outline-info:hover,
+.btn-outline-light:hover {
+  box-shadow: 0 0 20px rgba(150, 150, 150, 0.6);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.btn-outline-info:hover {
+  box-shadow: 0 0 20px rgba(150, 150, 150, 0.6);
+}
+
+/* Ensure all links and buttons have pointer cursor */
+a, button, .btn {
+  cursor: pointer !important;
+}
+
+a:hover, button:hover, .btn:hover {
+  cursor: pointer !important;
+}
+
+/* Pulse effect for interactive elements */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.6);
+  }
+}
+
+.btn-success:focus,
+.neon-text:hover {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Text selection styling */
+::selection {
+  background: rgba(0, 255, 65, 0.3);
+  color: var(--text-very-bright);
+}
+
+::-moz-selection {
+  background: rgba(0, 255, 65, 0.3);
+  color: var(--text-very-bright);
+}
